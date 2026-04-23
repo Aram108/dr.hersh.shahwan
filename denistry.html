@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Dentist | Precision in Every Smile</title>
+    <meta name="description"
+        content="Professional dental clinic in Duhok | Masik 2 specializing in dental surgery, Hollywood Smile, implants and more. B.D.S. certified with university-level expertise.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <!-- GSAP for Animations — loaded FIRST before script.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#home" class="logo">
+                <i class="ph-fill ph-tooth"></i>
+                <span class="logo-text">dr.hersh.shahwan</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="#pricing" class="nav-link" data-i18n="nav_pricing">Pricing</a></li>
+                <li><a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Our Work</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+
+            <!-- Right Controls -->
+            <div class="nav-controls">
+                <!-- Dark Mode Toggle -->
+                <button class="nav-icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
+
+                <!-- Language Selector -->
+                <div class="lang-dropdown" id="lang-dropdown">
+                    <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="current-flag" aria-hidden="true">🇬🇧</span>
+                        <span id="current-lang">EN</span>
+                        <i class="ph ph-caret-down lang-caret" id="lang-caret"></i>
+                    </button>
+                    <ul class="lang-menu" id="lang-menu" role="listbox">
+                        <li data-lang="en" role="option">🇬🇧 <span>English</span></li>
+                        <li data-lang="ku" role="option">
+                            <!-- Custom CSS Kurdistan Flag -->
+                            <span class="flag-ku" aria-hidden="true">
+                                <span class="fk-red"></span>
+                                <span class="fk-white"><span class="fk-sun">☀</span></span>
+                                <span class="fk-green"></span>
+                            </span>
+                            <span>Kurdish</span>
+                        </li>
+                        <li data-lang="ar" role="option">🇮🇶 <span>عربي</span></li>
+                    </ul>
+                </div>
+
+                <!-- Hamburger (mobile only) -->
+                <button class="nav-icon-btn mobile-toggle" id="mobile-toggle" aria-label="Open Menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MOBILE FULL-SCREEN MENU ===== -->
+    <div class="mobile-overlay" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-overlay-inner">
+            <button class="close-btn" id="close-mobile-menu" aria-label="Close Menu">
+                <i class="ph ph-x"></i>
+            </button>
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="mobile-link" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" class="mobile-link" data-i18n="nav_about">About</a></li>
+                <li><a href="#pricing" class="mobile-link" data-i18n="nav_pricing">Pricing</a></li>
+                <li><a href="#portfolio" class="mobile-link" data-i18n="nav_portfolio">Our Work</a></li>
+                <li><a href="#contact" class="mobile-link" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <!-- Social icons inside mobile menu -->
+            <div class="mobile-socials">
+                <a href="#" class="mob-social-btn instagram" aria-label="Instagram"><i
+                        class="ph-fill ph-instagram-logo"></i></a>
+                <a href="#" class="mob-social-btn facebook" aria-label="Facebook"><i
+                        class="ph-fill ph-facebook-logo"></i></a>
+                <a href="#" class="mob-social-btn tiktok" aria-label="TikTok"><i class="ph-fill ph-tiktok-logo"></i></a>
+                <a href="https://wa.me/9647507122124" class="mob-social-btn whatsapp" aria-label="WhatsApp"><i
+                        class="ph-fill ph-whatsapp-logo"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <div class="hero-video-wrapper">
+            <video class="hero-video" autoplay loop muted playsinline poster="assets/hero_bg.png">
+                <source src="assets/our-work-example2.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge" data-i18n="hero_badge">✨ Premium Dental Care</div>
+            <h1 class="hero-title" data-i18n="hero_title">Precision in Every Smile</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Experience advanced dental surgery and aesthetic care in
+                Duhok.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary" data-i18n="btn_book">Book Appointment</a>
+                <a href="#portfolio" class="btn btn-outline-white" data-i18n="btn_explore">Explore Work</a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about section-pad">
+        <div class="container auto-grid">
+            <div class="about-image-wrapper gsap-left">
+                <img src="assets/dr.hersh.jpg" alt="Dr. Dentist – B.D.S." class="about-img">
+                <div class="experience-badge">
+                    <i class="ph-fill ph-medal"></i>
+                    <span data-i18n="expert_care">Expert Care</span>
+                </div>
+            </div>
+
+            <div class="about-content gsap-right">
+                <span class="section-eyebrow" data-i18n="about_eyebrow">About The Doctor</span>
+                <h2 class="section-title" data-i18n="about_title">Dr. Dentist</h2>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="ph-fill ph-tooth"></i></div>
+                        <div class="feature-text">
+                            <h4 data-i18n="about_feat_1_title">Specialization</h4>
+                            <p data-i18n="about_desc_1">B.D.S. in Dentistry &amp; Dental Surgery</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="ph-fill ph-graduation-cap"></i></div>
+                        <div class="feature-text">
+                            <h4 data-i18n="about_feat_2_title">Academic Role</h4>
+                            <p data-i18n="about_desc_2">Lecturer assistant at University of Duhok</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="ph-fill ph-sparkle"></i></div>
+                        <div class="feature-text">
+                            <h4 data-i18n="about_feat_3_title">Philosophy</h4>
+                            <p data-i18n="about_desc_3">Precision in Every Smile</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING SECTION ===== -->
+    <section id="pricing" class="pricing section-pad bg-light">
+        <div class="container text-center">
+            <span class="section-eyebrow gsap-up" data-i18n="pricing_eyebrow">Transparent Prices</span>
+            <h2 class="section-title gsap-up" data-i18n="pricing_title">Pricing &amp; Packages</h2>
+            <p class="section-subtitle gsap-up" data-i18n="pricing_subtitle">Transparent pricing for premium dental care
+            </p>
+
+            <div class="pricing-grid">
+                <div class="price-card gsap-up">
+                    <div class="price-icon"><i class="ph-fill ph-sparkle"></i></div>
+                    <h3 data-i18n="price_cleaning">Dental Cleaning</h3>
+                    <div class="price-amount" data-i18n="price_cleaning_val">45,000 IQD</div>
+                    <p class="price-desc" data-i18n="price_cleaning_desc">Complete tartar removal and polishing.</p>
+                </div>
+
+                <div class="price-card popular gsap-up">
+                    <div class="popular-badge" data-i18n="popular">Popular</div>
+                    <div class="price-icon"><i class="ph-fill ph-tooth"></i></div>
+                    <h3 data-i18n="price_filling">Dental Filling</h3>
+                    <div class="price-amount" data-i18n="price_filling_val">100,000 IQD</div>
+                    <p class="price-desc" data-i18n="price_filling_desc">High-quality composite fillings.</p>
+                </div>
+
+                <div class="price-card gsap-up">
+                    <div class="price-icon"><i class="ph-fill ph-smiley"></i></div>
+                    <h3 data-i18n="price_hollywood">Hollywood Smile</h3>
+                    <div class="price-amount" data-i18n="price_hollywood_val">300,000 IQD</div>
+                    <p class="price-desc" data-i18n="price_hollywood_desc">Complete premium veneer makeover.</p>
+                </div>
+            </div>
+
+            <!-- Extra services (hidden by default) -->
+            <div class="extra-prices" id="extra-prices">
+                <div class="pricing-list">
+                    <div class="price-list-item">
+                        <div class="pli-info">
+                            <h4 data-i18n="price_extra_1">Teeth Whitening</h4>
+                            <p data-i18n="price_extra_1_desc">Professional laser whitening session.</p>
+                        </div>
+                        <div class="pli-amount" data-i18n="price_extra_1_val">Inquire</div>
+                    </div>
+                    <div class="price-list-item">
+                        <div class="pli-info">
+                            <h4 data-i18n="price_extra_2">Dental Implants</h4>
+                            <p data-i18n="price_extra_2_desc">High-grade titanium implants.</p>
+                        </div>
+                        <div class="pli-amount" data-i18n="price_extra_2_val">Inquire</div>
+                    </div>
+                    <div class="price-list-item">
+                        <div class="pli-info">
+                            <h4 data-i18n="price_extra_3">Orthodontics</h4>
+                            <p data-i18n="price_extra_3_desc">Braces &amp; clear aligners.</p>
+                        </div>
+                        <div class="pli-amount" data-i18n="price_extra_3_val">Inquire</div>
+                    </div>
+                    <div class="price-list-item">
+                        <div class="pli-info">
+                            <h4 data-i18n="price_extra_4">Root Canal</h4>
+                            <p data-i18n="price_extra_4_desc">Painless endodontic treatment.</p>
+                        </div>
+                        <div class="pli-amount" data-i18n="price_extra_4_val">Inquire</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toggle Button -->
+            <div class="more-services gsap-up">
+                <button id="toggle-more-prices" class="btn btn-outline" aria-expanded="false">
+                    <i class="ph-bold ph-plus-circle btn-icon" id="more-btn-icon"></i>
+                    <span id="more-btn-text">And more...</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR WORK — CINEMATIC PORTFOLIO ===== -->
+    <section id="portfolio" class="portfolio section-pad">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-eyebrow gsap-up" data-i18n="portfolio_eyebrow">Gallery</span>
+                <h2 class="section-title gsap-up" data-i18n="portfolio_title">Our Work</h2>
+                <p class="section-subtitle gsap-up" data-i18n="portfolio_subtitle">Real results from our satisfied
+                    patients</p>
+            </div>
+
+            <!-- Cinematic Hero Video -->
+            <div class="work-hero gsap-up">
+                <video class="work-hero-video" autoplay loop muted playsinline poster="assets/hero_bg.png">
+                    <source src="assets/our-work-example2.mp4" type="video/mp4">
+                </video>
+                <div class="work-hero-overlay">
+                    <div class="work-hero-badge">
+                        <i class="ph-fill ph-play-circle"></i>
+                        <span data-i18n="bento_video_desc">Smile Transformation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Masonry Photo Grid -->
+            <div class="work-masonry">
+                <div class="work-card gsap-up">
+                    <img src="assets/example-work.jpg" alt="Dental Restoration" loading="lazy">
+                    <div class="work-card-overlay">
+                        <i class="ph-fill ph-magnifying-glass-plus"></i>
+                        <span data-i18n="bento_label_1">Restoration</span>
+                    </div>
+                </div>
+
+                <div class="work-card work-card-tall gsap-up">
+                    <img src="assets/exapme-3 (1).jpg" alt="Before After" loading="lazy">
+                    <div class="work-card-overlay">
+                        <i class="ph-fill ph-magnifying-glass-plus"></i>
+                        <span data-i18n="bento_before_after">Before &amp; After</span>
+                    </div>
+                </div>
+
+                <div class="work-card gsap-up">
+                    <img src="assets/example-work2.jpg" alt="Teeth Whitening" loading="lazy">
+                    <div class="work-card-overlay">
+                        <i class="ph-fill ph-magnifying-glass-plus"></i>
+                        <span data-i18n="bento_label_2">Whitening</span>
+                    </div>
+                </div>
+
+                <div class="work-card gsap-up">
+                    <img src="assets/dentist.png" alt="Clinic" loading="lazy">
+                    <div class="work-card-overlay">
+                        <i class="ph-fill ph-magnifying-glass-plus"></i>
+                        <span data-i18n="portfolio_eyebrow">Gallery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT & MAP ===== -->
+    <section id="contact" class="contact section-pad bg-light">
+        <div class="container auto-grid">
+            <div class="contact-info gsap-left">
+                <span class="section-eyebrow" data-i18n="contact_eyebrow">Reach Us</span>
+                <h2 class="section-title" data-i18n="contact_title">Get in Touch</h2>
+                <p class="contact-desc" data-i18n="contact_desc">We are here to answer any questions you may have about
+                    our dental services.</p>
+
+                <div class="contact-items">
+                    <div class="c-item">
+                        <div class="c-icon"><i class="ph-fill ph-map-pin"></i></div>
+                        <div class="c-text">
+                            <h4 data-i18n="loc_title">Location</h4>
+                            <p data-i18n="contact_loc">Duhok | Masik 2</p>
+                        </div>
+                    </div>
+                    <a href="tel:+9647507122124" class="c-item c-item-link">
+                        <div class="c-icon c-icon-teal"><i class="ph-fill ph-phone-call"></i></div>
+                        <div class="c-text">
+                            <h4 data-i18n="phone_title">Phone</h4>
+                            <p data-i18n="contact_phone">+964 750 712 21 24</p>
+                        </div>
+                    </a>
+                    <div class="c-item">
+                        <div class="c-icon"><i class="ph-fill ph-clock"></i></div>
+                        <div class="c-text">
+                            <h4 data-i18n="hours_title">Working Hours</h4>
+                            <p data-i18n="working_hours">Sat – Thu: 9:00 AM – 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <h4 class="social-heading" data-i18n="follow_us">Follow Us</h4>
+                <div class="social-links-grid">
+                    <a href="#" class="social-box instagram" aria-label="Instagram">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </a>
+                    <a href="#" class="social-box facebook" aria-label="Facebook">
+                        <i class="ph-fill ph-facebook-logo"></i>
+                    </a>
+                    <a href="#" class="social-box tiktok" aria-label="TikTok">
+                        <i class="ph-fill ph-tiktok-logo"></i>
+                    </a>
+                    <a href="https://wa.me/9647507122124" class="social-box whatsapp" aria-label="WhatsApp">
+                        <i class="ph-fill ph-whatsapp-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-map gsap-right">
+                <div class="map-container">
+                    <!-- Coords: 36°52'34.2"N 42°56'36.4"E → 36.876167, 42.943444 -->
+                    <iframe src="https://maps.google.com/maps?q=36.876167,42.943444&z=16&output=embed"
+                        title="Clinic Location Map" width="100%" height="100%" style="border:0;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="footer-logo">
+                <i class="ph-fill ph-tooth"></i> Dr. Dentist
+            </div>
+            <p class="footer-copy">&copy; <span id="year"></span> <span data-i18n="footer_copy">All rights
+                    reserved.</span></p>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="script.js"></script>
+</body>
+
+</html>
