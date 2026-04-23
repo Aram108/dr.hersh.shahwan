@@ -285,6 +285,12 @@ button {
     flex-shrink: 0;
 }
 
+@media (max-width: 600px) {
+    .logo-text {
+        display: none;
+    }
+}
+
 .logo i {
     font-size: 2rem;
 }
@@ -671,8 +677,8 @@ button {
    ================================================ */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
+    height: 100svh;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -722,7 +728,7 @@ button {
 }
 
 .hero-title {
-    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-size: clamp(2.2rem, 8vw, 5rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -1.5px;
