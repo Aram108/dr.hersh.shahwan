@@ -113,6 +113,18 @@ button {
     padding: 110px 0;
 }
 
+@media (max-width: 768px) {
+    .section-pad {
+        padding: 70px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-pad {
+        padding: 50px 0;
+    }
+}
+
 .text-center {
     text-align: center;
 }
@@ -259,6 +271,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
 }
 
 /* Logo */
@@ -274,6 +287,24 @@ button {
 
 .logo i {
     font-size: 2rem;
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem;
+        gap: 7px;
+    }
+
+    .logo i {
+        font-size: 1.5rem;
+    }
+
+    .logo-text {
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
 /* Nav Links */
@@ -324,7 +355,8 @@ button {
 .nav-controls {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .nav-icon-btn {
@@ -488,6 +520,21 @@ button {
 /* Mobile Toggle (hamburger) */
 .mobile-toggle {
     display: none;
+    position: relative;
+    z-index: 901;
+}
+
+/* Ensure hamburger is always visible (dark icon on scrolled, white on hero) */
+.navbar:not(.scrolled) .mobile-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+.navbar.scrolled .mobile-toggle {
+    background: var(--bg-alt);
+    border-color: var(--border);
+    color: var(--text);
 }
 
 @media (max-width: 900px) {
@@ -496,7 +543,16 @@ button {
     }
 
     .mobile-toggle {
-        display: flex;
+        display: flex !important;
+    }
+
+    /* Hide lang label text on small screens to save space */
+    .lang-btn #current-lang {
+        display: none;
+    }
+
+    .lang-btn {
+        padding: 9px 11px;
     }
 }
 
@@ -1240,6 +1296,11 @@ a.c-item-link {
     transition: var(--tr);
 }
 
+.c-icon-teal {
+    background: linear-gradient(135deg, var(--primary-lt), var(--primary-dk));
+    color: #fff;
+}
+
 .c-item:hover .c-icon {
     background: var(--primary);
     color: #fff;
@@ -1322,6 +1383,18 @@ a.c-item-link {
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     border: 2px solid var(--border);
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        height: 260px;
+    }
 }
 
 .map-container iframe {
